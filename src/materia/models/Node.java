@@ -4,14 +4,16 @@ public class Node {
     public int num;
     private Node left;
     private Node right;
+    private int height;
+    
 
     public Node(int num) {
         this.num = num;
     }
-    public int getNum() {
+    public int getValor() {
         return num;
     }
-    public void setNum(int num) {
+    public void setValue(int num) {
         this.num = num;
     }
     public Node getLeft() {
@@ -64,6 +66,12 @@ public class Node {
     @Override
     public String toString() {
         return "Node [num=" + num + "]";
+    }
+    public int getHeight() {
+        return height;
+    }
+    public void setHeight(int height) {
+        this.height = height;
     }
     
     

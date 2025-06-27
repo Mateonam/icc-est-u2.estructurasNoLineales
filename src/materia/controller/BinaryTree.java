@@ -21,9 +21,9 @@ public class BinaryTree {
             peso++;
             return new Node(value);
         }
-        if (value < padre.getNum()) {
+        if (value < padre.getValor()) {
             padre.setLeft(insertRec(padre.getLeft(), value));
-        } else if (value > padre.getNum()) {
+        } else if (value > padre.getValor()) {
             padre.setRight(insertRec(padre.getRight(), value));
         }
         return padre;
@@ -36,7 +36,7 @@ public class BinaryTree {
 
     private void printPreOrderRec(Node node) {
         if (node != null) {
-            System.out.print(node.getNum() + ", ");
+            System.out.print(node.getValor() + ", ");
             printPreOrderRec(node.getLeft());
             printPreOrderRec(node.getRight());
         }
@@ -50,7 +50,7 @@ public class BinaryTree {
     private void printInOrderRec(Node node) {
         if (node != null) {
             printInOrderRec(node.getLeft());
-            System.out.print(node.getNum() + ", ");
+            System.out.print(node.getValor() + ", ");
             printInOrderRec(node.getRight());
         }
     }
@@ -64,7 +64,7 @@ public class BinaryTree {
         if (node != null) {
             printPostOrderRec(node.getLeft());
             printPostOrderRec(node.getRight());
-            System.out.print(node.getNum() + ", ");
+            System.out.print(node.getValor() + ", ");
         }
     }
 
@@ -74,7 +74,7 @@ public class BinaryTree {
 
     private boolean findValueRec(Node node, int value) {
         if (node == null) return false;
-        if (node.getNum() == value) return true;
+        if (node.getValor() == value) return true;
         return findValueRec(node.getLeft(), value) || findValueRec(node.getRight(), value);
     }
 
@@ -97,7 +97,7 @@ public class BinaryTree {
     private void printInOrderRecAlt(Node node) {
         if (node != null) {
             printInOrderRecAlt(node.getLeft());
-            System.out.print(node.getNum() + "(h=" + getHeightRec(node) + "), ");
+            System.out.print(node.getValor() + "(h=" + getHeightRec(node) + "), ");
             printInOrderRecAlt(node.getRight());
         }
     }
@@ -115,7 +115,7 @@ public class BinaryTree {
     private void printInOrderRecBf(Node n) {
         if (n != null) {
             printInOrderRecBf(n.getLeft());
-            System.out.print(n.getNum() + "(bf=" + getBalanceFactor(n) + "), ");
+            System.out.print(n.getValor() + "(bf=" + getBalanceFactor(n) + "), ");
             printInOrderRecBf(n.getRight());
         }
     }
@@ -138,7 +138,7 @@ public class BinaryTree {
     private void printUnbalancedRec(Node n) {
         if (n != null) {
             printUnbalancedRec(n.getLeft());
-            if (Math.abs(getBalanceFactor(n)) > 1) System.out.print(n.getNum() + "(fE=" + getBalanceFactor(n) + ") ");
+            if (Math.abs(getBalanceFactor(n)) > 1) System.out.print(n.getValor() + "(fE=" + getBalanceFactor(n) + ") ");
             printUnbalancedRec(n.getRight());
         }
     }
